@@ -5,12 +5,17 @@
 </template>
 
 <script>
+import bgImg from '../src/assets/images/bg.jpg';
+import '../src/assets/styles/test.css';
 export default {
     data() {
         return {};
     },
     methods: {},
-    components: {}
+    components: {},
+    created(){
+        console.log(bgImg);
+    }
 };
 </script>
 

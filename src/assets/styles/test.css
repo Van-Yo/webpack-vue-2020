@@ -1,0 +1,11 @@
+@import './reset.css';
+
+body{
+    background: url(../images/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    color: #fff;
+    font-size: 16px;
+}

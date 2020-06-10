@@ -20,6 +20,9 @@
   "homepage": "https://github.com/Van-Yo/webpack-vue-2020#readme",
   "devDependencies": {
     "css-loader": "^3.5.3",
+    "file-loader": "^6.0.0",
+    "style-loader": "^1.2.1",
+    "url-loader": "^4.1.0",
     "vue-loader": "^15.9.2",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.43.0",
