@@ -1,12 +1,13 @@
 # webpack-vue-2020
 从零搭建webpack+vue脚手架
 
-## npm i
-## npm run build
-## 进入dist文件夹，新建index.html
-## 在浏览器中打开dist文件夹中的index.html
+## 安装
+- npm i
+- npm run build
+- 进入dist文件夹，新建index.html
+- 在浏览器中打开dist文件夹中的index.html
 
-### index.html
+index.html
 ```
 <!DOCTYPE html>
 <html lang="en">
