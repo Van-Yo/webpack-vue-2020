@@ -1,10 +1,15 @@
 <template>
     <section class="">
-        this is a Vue app
-        <button>
-            <span>hello!!!</span>
+        <h1>this is a Vue app</h1>
+        <input type="text" placeholder="请输入你知道的职业" v-model="inputContent">
+        <button @click="addProfession">
+            <span>添加</span>
         </button>
-        <input type="text" placeholder="你好">
+        <div>
+            <ul>
+                <li v-for="(item,index) in professionList" :key="index">{{item}}</li>
+            </ul>
+        </div>
     </section>
 </template>
 
@@ -13,12 +18,22 @@ import bgImg from '../src/assets/images/bg.jpg';
 import '../src/assets/styles/test.css';
 export default {
     data() {
-        return {};
+        return {
+            professionList : ['student','teacher','doctor'],
+            inputContent : ''
+        };
     },
-    methods: {},
+    methods: {
+        addProfession(){
+            if(this.inputContent == '') return;
+            this.professionList.push(this.inputContent);
+        }
+    },
     components: {},
     created(){
         console.log(bgImg);
+        let name123 = 'vanlus';
+        console.log(name123);
     }
 };
 </script>
@@ -37,5 +52,8 @@ button{
 }
 ::placeholder{
     color: red;
+}
+li{
+    color: blue;
 }
 </style>
