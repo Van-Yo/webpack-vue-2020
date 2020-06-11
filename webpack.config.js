@@ -2,6 +2,10 @@
 const path = require('path');
 // 引入vue-loader的插件
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+// 引入html-webpack-plugin的插件
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+// 引入clean-webpack-plugin的插件
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     // 打包模式（开发）
@@ -33,17 +37,23 @@ module.exports = {
                 ],
             },
             {
-                test:/\.css$/,
+                test:/\.(less|css)$/,
                 use:[
                     'style-loader',
-                    'css-loader'
+                    'css-loader',
+                    'postcss-loader',
+                    'less-loader'
                 ]
             }
         ]
     },
     //插件
     plugins: [
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new HtmlWebpackPlugin({
+            template:'./src/index.html'
+        }),
+        new CleanWebpackPlugin()
     ],
     resolve : {
         alias: {
