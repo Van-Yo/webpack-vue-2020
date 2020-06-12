@@ -15,6 +15,20 @@ const devConfig = {
         open : true,
         hot: true,
     },
+    // 打包规则
+    module: {
+        rules: [
+            {
+                test: /\.(less|css)$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'postcss-loader',
+                    'less-loader'
+                ]
+            }
+        ]
+    },
     //插件
     plugins: [
         new webpack.HotModuleReplacementPlugin()

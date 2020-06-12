@@ -37,18 +37,9 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                         limit: 8192,
-                        name: '[name].[ext]', //占位符
+                        name: 'images/[name].[ext]', //占位符
                     },
                 }, ],
-            },
-            {
-                test: /\.(less|css)$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'postcss-loader',
-                    'less-loader'
-                ]
             },
             {
                 test: /\.js$/,

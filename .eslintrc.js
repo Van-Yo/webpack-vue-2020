@@ -9,9 +9,9 @@ module.exports = {
     },
     rules: {
         // 分号;结尾
-        'semi': ['warn',
-            'always'
-        ],
+        // 'semi': ['warn',
+        //     'always'
+        // ],
         // 引号，
         'quotes': [
             'warn',
