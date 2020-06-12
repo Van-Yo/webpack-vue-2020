@@ -9,7 +9,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {
     CleanWebpackPlugin
 } = require('clean-webpack-plugin');
-
+// 引入copy-webpack-plugin的插件
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     // 打包入口
     entry: './src/main.js',
@@ -20,8 +21,7 @@ module.exports = {
     },
     // 打包规则
     module: {
-        rules: [
-            {
+        rules: [{
                 enforce: 'pre',
                 test: /\.(js|vue)$/,
                 exclude: /node_modules/,
@@ -36,6 +36,7 @@ module.exports = {
                 use: [{
                     loader: 'url-loader',
                     options: {
+                        esModule: false, // 这里设置为false
                         limit: 8192,
                         name: 'images/[name].[ext]', //占位符
                     },
@@ -54,7 +55,13 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html'
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [{
+                from: 'src/assets/static',
+                to: 'static'
+            }]
+        })
     ],
     resolve: {
         alias: {

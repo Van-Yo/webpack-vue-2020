@@ -10,12 +10,15 @@
                 <li v-for="(item,index) in professionList" :key="index">{{item}}</li>
             </ul>
         </div>
+        <div class="header-img">
+            <img src="./assets/static/images/dxx.png" alt="">
+        </div>
     </section>
 </template>
 
 <script>
-import bgImg from '../src/assets/images/bg.jpg';
-import '../src/assets/styles/test.css';
+import bgImg from './assets/images/bg.jpg';
+import './assets/styles/test.css';
 export default {
     data() {
         return {
@@ -56,5 +59,11 @@ button{
 }
 li{
     color: blue;
+}
+.header-img{
+    width: 100px;
+    img{
+        width: 100%;
+    }
 }
 </style>
