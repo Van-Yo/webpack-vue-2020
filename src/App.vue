@@ -20,7 +20,8 @@ export default {
     data() {
         return {
             professionList : ['student','teacher','doctor'],
-            inputContent : ''
+            inputContent : '',
+            name : 'vanlus'
         };
     },
     methods: {

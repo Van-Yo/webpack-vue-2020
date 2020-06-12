@@ -1,5 +1,5 @@
-
-const baseConfig = require('./webpack.base.js');
+/* eslint-disable semi */
+const baseConfig = require('./webpack.base.config.js');
 const merge = require('webpack-merge');
 // 为了引入webpack内置的 HMR 插件
 const webpack = require('webpack');

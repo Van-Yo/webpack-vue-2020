@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 // 导入path模块
 const path = require('path');
 // 引入vue-loader的插件
@@ -19,7 +20,14 @@ module.exports = {
     },
     // 打包规则
     module: {
-        rules: [{
+        rules: [
+            {
+                enforce: 'pre',
+                test: /\.(js|vue)$/,
+                exclude: /node_modules/,
+                loader: 'eslint-loader',
+            },
+            {
                 test: /\.vue$/,
                 loader: 'vue-loader'
             },
@@ -45,7 +53,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: "babel-loader"
+                loader: 'babel-loader'
             }
         ]
     },
