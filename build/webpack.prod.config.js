@@ -4,6 +4,8 @@ const baseConfig = require('./webpack.base.config.js');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // 引入optimize-css-assets-webpack-plugin的插件
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+// 引入uglifyjs-webpack-plugin的插件
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const merge = require('webpack-merge');
 const buildConfig = {
     // 打包模式（生产）
@@ -32,6 +34,9 @@ const buildConfig = {
         new MiniCssExtractPlugin({
             filename: 'css/style.[contenthash].css',
             chunkFilename: 'css/[name].[contenthash].css',
+        }),
+        new UglifyJsPlugin({
+            exclude: /\/node_modules/
         })
     ],
     optimization: {
