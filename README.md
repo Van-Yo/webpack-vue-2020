@@ -8,3 +8,5 @@
 ## 打包上线
 - npm i
 - npm run build
+
+## vue-router
