@@ -14,6 +14,7 @@ const devConfig = {
         // 浏览器自动打开
         open : true,
         hot: true,
+        historyApiFallback: true
     },
     // 打包规则
     module: {

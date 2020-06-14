@@ -41,6 +41,7 @@ let routes = [
     ...errorList
 ];
 const index = new VueRouter({
+    mode: 'history',
     routes
 });
 //路由钩子
