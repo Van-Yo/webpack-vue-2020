@@ -1,4 +1,6 @@
 /* eslint-disable semi */
+// 导入webpack
+const webpack = require('webpack');
 // 导入path模块
 const path = require('path');
 // 引入vue-loader的插件
@@ -9,19 +11,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {
     CleanWebpackPlugin
 } = require('clean-webpack-plugin');
-
+// 引入copy-webpack-plugin的插件
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     // 打包入口
     entry: './src/main.js',
     // 打包出口
     output: {
-        filename: 'bundle.js',
+        filename: 'js/[name].bundle.js',
         path: path.resolve(__dirname, '../dist')
     },
     // 打包规则
     module: {
-        rules: [
-            {
+        rules: [{
                 enforce: 'pre',
                 test: /\.(js|vue)$/,
                 exclude: /node_modules/,
@@ -36,24 +38,20 @@ module.exports = {
                 use: [{
                     loader: 'url-loader',
                     options: {
+                        esModule: false, // 这里设置为false
                         limit: 8192,
-                        name: '[name].[ext]', //占位符
+                        name: 'images/[name].[ext]', //占位符
                     },
                 }, ],
-            },
-            {
-                test: /\.(less|css)$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'postcss-loader',
-                    'less-loader'
-                ]
             },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader'
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+                loader: 'file-loader'
             }
         ]
     },
@@ -63,11 +61,26 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html'
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [{
+                from: 'src/assets/static',
+                to: 'static'
+            }]
+        }),
+        // 定义全局数据
+        new webpack.DefinePlugin({
+            PROJECT_NAME : '"webpack-vue-2020"'
+        })
     ],
     resolve: {
         alias: {
-            'vue': 'vue/dist/vue.js'
+            'vue': 'vue/dist/vue.js',
+            '@assets':path.resolve(__dirname,'../src/assets'),   //静态文件目录映射
+            '@components':path.resolve(__dirname,'../src/components'),   //组件目录映射
+            '@pages':path.resolve(__dirname,'../src/pages'),   //页面目录映射
+            '@router':path.resolve(__dirname,'../src/router'),   //路由目录映射
+            '@utils':path.resolve(__dirname,'../src/utils'),   //工具目录映射
         }
     }
 }

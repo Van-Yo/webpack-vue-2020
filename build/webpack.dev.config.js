@@ -14,6 +14,21 @@ const devConfig = {
         // 浏览器自动打开
         open : true,
         hot: true,
+        historyApiFallback: true
+    },
+    // 打包规则
+    module: {
+        rules: [
+            {
+                test: /\.(less|css)$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'postcss-loader',
+                    'less-loader'
+                ]
+            }
+        ]
     },
     //插件
     plugins: [
