@@ -11,11 +11,13 @@
           {{ item }}
         </li>
       </ul>
+      <Footer></Footer>
     </div>
   </section>
 </template>
 
 <script>
+import Footer from '@components/common/Footer.vue';
 export default {
   data() {
     return {
@@ -27,7 +29,9 @@ export default {
 			this.$router.push({path:'/bookDetail',query: {item}})
 		}
 	},
-  components: {},
+  components: {
+    Footer
+  },
 };
 </script>
 

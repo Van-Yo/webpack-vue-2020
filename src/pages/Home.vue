@@ -17,12 +17,14 @@
 				<el-button type="primary" @click="numIncrement(1)" plain>点我加1</el-button>
 				<el-button type="primary" @click="numIncrementAsync" plain>点我三秒后加3</el-button>
 			</div>
+			<Footer></Footer>
 		</div>
 	</section>
 </template>
 
 <script>
 import { mapState,mapGetters,mapMutations,mapActions } from 'vuex';
+import Footer from '@components/common/Footer.vue';
 export default {
 	data() {
 		return {};
@@ -76,7 +78,9 @@ export default {
 	created(){
 		console.log(PROJECT_NAME);
 	},
-	components: {}
+	components: {
+		Footer
+	}
 };
 </script>
 

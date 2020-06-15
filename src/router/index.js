@@ -18,7 +18,7 @@ let baseArr = [
     },
     {
         path: '/home',
-        component: () => import('../pages/Home.vue'),
+        component: () => import(/* webpackChunkName: "home" */'../pages/Home.vue'),
         meta: {
             title: '首页'
         }
@@ -27,7 +27,7 @@ let baseArr = [
 //路由错误页面配置
 let errorList = [{
     path: '/errorPage',
-    component: () => import('../pages/ErrorPage.vue'),
+    component: () => import(/* webpackChunkName: "errorPage" */'../pages/ErrorPage.vue'),
     meta: {
         title: '缺省页'
     }

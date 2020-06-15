@@ -21,6 +21,24 @@ module.exports = {
         filename: 'js/[name].bundle.js',
         path: path.resolve(__dirname, '../dist')
     },
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            cacheGroups: {
+                vendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'initial',
+                    priority: 10
+                },
+                components: {
+                    test: /[\\/]components[\\/]/,
+                    name: 'components',
+                    chunks: 'all'
+                }
+            }
+        }
+    },
     // 打包规则
     module: {
         rules: [{
@@ -34,7 +52,7 @@ module.exports = {
                 loader: 'vue-loader'
             },
             {
-                test: /\.(jpg|jpeg|png|svg)$/,
+                test: /\.(png|jpg|jpeg|gif|ico)$/,
                 use: [{
                     loader: 'url-loader',
                     options: {
@@ -51,7 +69,14 @@ module.exports = {
             },
             {
                 test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
-                loader: 'file-loader'
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        esModule: false, // 这里设置为false
+                        limit: 8192,
+                        name: 'fonts/[name].[ext]', //占位符
+                    },
+                }, ],
             }
         ]
     },
