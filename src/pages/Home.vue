@@ -49,6 +49,9 @@ export default {
             });
 		}
 	},
+	created(){
+		console.log(PROJECT_NAME);
+	},
 	components: {}
 };
 </script>
