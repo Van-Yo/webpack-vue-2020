@@ -17,6 +17,9 @@
 				<el-button type="primary" @click="numIncrement(1)" plain>点我加1</el-button>
 				<el-button type="primary" @click="numIncrementAsync" plain>点我三秒后加3</el-button>
 			</div>
+			<div>
+				<el-button type="primary" @click="setStoreage" plain>本地存储数据</el-button>
+			</div>
 			<Footer></Footer>
 		</div>
 	</section>
@@ -25,6 +28,7 @@
 <script>
 import { mapState,mapGetters,mapMutations,mapActions } from 'vuex';
 import Footer from '@components/common/Footer.vue';
+import Storage from '@utils/storage.js'
 export default {
 	data() {
 		return {};
@@ -73,10 +77,13 @@ export default {
 					console.log('选择了取消');
 				}
             });
+		},
+		setStoreage(){
+			Storage.setRequestHeader({name:'vanlus',age:'18'});
 		}
 	},
 	created(){
-		console.log(PROJECT_NAME);
+		console.log(IS_ENCRYPT);
 	},
 	components: {
 		Footer

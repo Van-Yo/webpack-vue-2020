@@ -1,6 +1,4 @@
 /* eslint-disable semi */
-// 导入webpack
-const webpack = require('webpack');
 // 导入path模块
 const path = require('path');
 // 引入vue-loader的插件
@@ -80,10 +78,6 @@ module.exports = {
                 from: 'src/assets/static',
                 to: 'static'
             }]
-        }),
-        // 定义全局数据
-        new webpack.DefinePlugin({
-            PROJECT_NAME : '"webpack-vue-2020"'
         })
     ],
     resolve: {
