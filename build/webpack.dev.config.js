@@ -46,7 +46,11 @@ const devConfig = {
     },
     //插件
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        // 定义全局数据
+        new webpack.DefinePlugin({
+            IS_ENCRYPT : 'false'
+        })
     ]
 }
 

@@ -48,6 +48,10 @@ const buildConfig = {
         new MiniCssExtractPlugin({
             filename: 'css/style.[contenthash].css',
             chunkFilename: 'css/[name].[contenthash].css',
+        }),
+        // 定义全局数据
+        new webpack.DefinePlugin({
+            IS_ENCRYPT : 'true'
         })
     ],
     optimization: {
