@@ -29,6 +29,17 @@ const buildConfig = {
                     'postcss-loader',
                     'less-loader'
                 ]
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif|ico)$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        esModule: false, // 这里设置为false
+                        limit: 4096,
+                        name: 'images/[name].[contenthash].[ext]', //占位符
+                    },
+                }, ],
             }
         ]
     },
