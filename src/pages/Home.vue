@@ -20,6 +20,9 @@
 			<div>
 				<el-button type="primary" @click="setStoreage" plain>本地存储数据</el-button>
 			</div>
+			<div>
+				<el-button type="primary" @click="getAddressList" plain>请求接口数据</el-button>
+			</div>
 			<Footer></Footer>
 		</div>
 	</section>
@@ -28,7 +31,8 @@
 <script>
 import { mapState,mapGetters,mapMutations,mapActions } from 'vuex';
 import Footer from '@components/common/Footer.vue';
-import Storage from '@utils/storage.js'
+import Storage from '@utils/storage.js';
+import requestTest from '@requests/requestTest.js';
 export default {
 	data() {
 		return {};
@@ -80,6 +84,11 @@ export default {
 		},
 		setStoreage(){
 			Storage.setRequestHeader({name:'vanlus',age:'18'});
+		},
+		getAddressList(){
+			requestTest.getAddressList().then(res=>{
+				console.log(res);
+			})
 		}
 	},
 	created(){
