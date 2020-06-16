@@ -10,6 +10,9 @@ const merge = require('webpack-merge');
 const buildConfig = {
     // 打包模式（生产）
     mode : 'production',
+    output: {
+        filename: 'js/[name].[contenthash].js'
+    },
     // 打包规则
     module: {
         rules: [
@@ -26,6 +29,17 @@ const buildConfig = {
                     'postcss-loader',
                     'less-loader'
                 ]
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif|ico)$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        esModule: false, // 这里设置为false
+                        limit: 4096,
+                        name: 'images/[name].[contenthash].[ext]', //占位符
+                    },
+                }, ],
             }
         ]
     },

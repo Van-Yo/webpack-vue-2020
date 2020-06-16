@@ -7,6 +7,9 @@ const webpack = require('webpack');
 const devConfig = {
     // 打包模式（开发）
     mode : 'development',
+    output: {
+        filename: 'js/[name].bundle.js'
+    },
     devtool: 'cheap-module-eval-source-map',
     devServer: {
         // 指定服务器根目录
@@ -27,6 +30,17 @@ const devConfig = {
                     'postcss-loader',
                     'less-loader'
                 ]
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif|ico)$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        esModule: false, // 这里设置为false
+                        limit: 4096,
+                        name: 'images/[name].[ext]', //占位符
+                    },
+                }, ],
             }
         ]
     },
