@@ -7,6 +7,9 @@ const webpack = require('webpack');
 const devConfig = {
     // 打包模式（开发）
     mode : 'development',
+    output: {
+        filename: 'js/[name].bundle.js'
+    },
     devtool: 'cheap-module-eval-source-map',
     devServer: {
         // 指定服务器根目录

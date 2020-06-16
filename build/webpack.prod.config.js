@@ -10,6 +10,9 @@ const merge = require('webpack-merge');
 const buildConfig = {
     // 打包模式（生产）
     mode : 'production',
+    output: {
+        filename: 'js/[name].[contenthash].js'
+    },
     // 打包规则
     module: {
         rules: [

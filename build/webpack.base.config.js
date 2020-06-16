@@ -18,7 +18,6 @@ module.exports = {
     entry: './src/main.js',
     // 打包出口
     output: {
-        filename: 'js/[name].bundle.js',
         path: path.resolve(__dirname, '../dist')
     },
     optimization: {
