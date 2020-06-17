@@ -3,6 +3,7 @@
 import Vue from 'vue';
 import App from './App.vue';
 import '@assets/styles/reset.css';
+import '@assets/styles/public.less';
 import router from '@router/index';
 // 引入element-ui
 import ElementUI from 'element-ui';
