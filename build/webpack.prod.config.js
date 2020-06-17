@@ -53,7 +53,8 @@ const buildConfig = {
         }),
         // 定义全局数据
         new webpack.DefinePlugin({
-            IS_ENCRYPT : 'true'
+            IS_ENCRYPT : 'true',    // 生产环境下压缩
+            BASE_URL : '"http://139.224.227.52:8088"'   // 生产环境下基础请求路径
         })
     ],
     optimization: {

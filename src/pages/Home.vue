@@ -26,9 +26,6 @@
 			<div>
 				<el-button type="primary" @click="getMockData" plain>获取mock数据</el-button>
 			</div>
-			<!-- <div>
-				<el-button type="primary" @click="getProxyData" plain>获取proxy数据</el-button>
-			</div> -->
 			<Footer></Footer>
 		</div>
 	</section>
@@ -100,12 +97,7 @@ export default {
 			requestTest.getMockData().then(res=>{
 				console.log(res);
 			})
-		},
-		// getProxyData(){
-		// 	requestTest.getProxyData().then(res=>{
-		// 		console.log(res);
-		// 	})
-		// }
+		}
 	},
 	created(){
 		console.log(IS_ENCRYPT);

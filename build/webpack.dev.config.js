@@ -52,26 +52,18 @@ const devConfig = {
         new webpack.HotModuleReplacementPlugin(),
         // 定义全局数据
         new webpack.DefinePlugin({
-            IS_ENCRYPT : 'false'
+            IS_ENCRYPT : 'false',   // 开发环境下不压缩
+            BASE_URL : '"http://localhost:8080"'    // 开发环境下基础请求路径
         })
     ]
 }
+// 如果运行的是mock环境，其实就是dev环境
+// 只不过在此环境下新增了mock假数据，可模拟请求数据
 if(process.env.npm_lifecycle_event == 'mock'){
     //mock环境，启用mock代理服务,不走代理
     devConfig.devServer.before = (app) => {
         // mock的api
         apiMocker(app, path.resolve(__dirname,'../src/mock/api.js'));
     };
-    //非mock匹配项走测试环境，走代理
-    // devConfig.devServer.proxy = {
-    //     '/api': {
-    //         target: 'http://139.224.227.52:8088', // 目标接口的域名
-    //         // secure: true,  // https 的时候 使用该参数
-    //         changeOrigin: true, // 是否跨域
-    //         pathRewrite: {
-    //             '^/api': '' // 重写路径
-    //         }
-    //     }
-    // }
 };
 module.exports = merge(baseConfig,devConfig)
