@@ -11,6 +11,12 @@ const {
 } = require('clean-webpack-plugin');
 // 引入copy-webpack-plugin的插件
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+// 引入webpack
+const webpack = require('webpack');
+// 引入webpack工具类
+const webpackUtils = require('./webpack.utils');
+const config = webpackUtils.getEnvConfig();
+
 module.exports = {
     // 打包入口
     entry: './src/main.js',
@@ -78,7 +84,9 @@ module.exports = {
                 from: 'src/assets/static',
                 to: 'static'
             }]
-        })
+        }),
+        // 定义全局数据
+        new webpack.DefinePlugin(config)
     ],
     resolve: {
         alias: {

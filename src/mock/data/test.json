@@ -1,0 +1,29 @@
+[
+    {
+        "orgId": "42505907500",
+        "orgName": "方塔中医院",
+        "deptName": "口腔科",
+        "attending": "黄均达",
+        "title": "",
+        "omsDate": "20190619",
+        "omsType": "100",
+        "diagnosis": "残冠",
+        "serialNo": "6834586",
+        "labExam":[{
+            "examDate":"20180526",
+            "examName":"血常规",
+            "examType":"一般临床检验",
+            "deadline":"",
+            "examId":"",
+            "ioType":""
+        }],
+        "study":[{
+            "studyDate":"20190526",
+            "studyName":"右股骨正侧位，右骨关节",
+            "studyType":"超声检查",
+            "studyDiag":"右侧股骨颈骨皮质不连续，骨折处略嵌插移位。",
+            "instanceId":"",
+            "studyId":""
+        }]
+    }
+]
