@@ -1,6 +1,7 @@
 <template>
 	<section class="home-area">
 		<div class="container">
+			<Header></Header>
 			<div>
 				<el-row>
 					<el-button type="primary" @click="goToBook" plain>图书</el-button>
@@ -34,6 +35,7 @@
 <script>
 import { mapState,mapGetters,mapMutations,mapActions } from 'vuex';
 import Footer from '@components/common/Footer.vue';
+import Header from '@components/common/Header.vue';
 import Storage from '@utils/storage.js';
 import requestTest from '@requests/requestTest.js';
 export default {
@@ -103,7 +105,8 @@ export default {
 		console.log(IS_ENCRYPT);
 	},
 	components: {
-		Footer
+		Footer,
+		Header
 	}
 };
 </script>
