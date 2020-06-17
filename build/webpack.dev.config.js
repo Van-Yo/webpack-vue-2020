@@ -49,12 +49,7 @@ const devConfig = {
     },
     //插件
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        // 定义全局数据
-        new webpack.DefinePlugin({
-            IS_ENCRYPT : 'false',   // 开发环境下不压缩
-            BASE_URL : '"http://localhost:8080"'    // 开发环境下基础请求路径
-        })
+        new webpack.HotModuleReplacementPlugin()
     ]
 }
 // 如果运行的是mock环境，其实就是dev环境

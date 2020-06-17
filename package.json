@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --config ./build/webpack.dev.config.js",
     "mock": "webpack-dev-server --config ./build/webpack.dev.config.js",
+    "test": "webpack --config ./build/webpack.prod.config.js",
     "build": "webpack --config ./build/webpack.prod.config.js"
   },
   "repository": {

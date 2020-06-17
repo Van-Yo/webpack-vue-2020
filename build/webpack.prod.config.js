@@ -6,8 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 // 引入terser-webpack-plugin的插件
 const TerserJSPlugin = require('terser-webpack-plugin');
-// 为了引入webpack内置的 HMR 插件
-const webpack = require('webpack');
+// 引入webpack-merge的插件
 const merge = require('webpack-merge');
 const buildConfig = {
     // 打包模式（生产）
@@ -50,11 +49,6 @@ const buildConfig = {
         new MiniCssExtractPlugin({
             filename: 'css/style.[contenthash].css',
             chunkFilename: 'css/[name].[contenthash].css',
-        }),
-        // 定义全局数据
-        new webpack.DefinePlugin({
-            IS_ENCRYPT : 'true',    // 生产环境下压缩
-            BASE_URL : '"http://139.224.227.52:8088"'   // 生产环境下基础请求路径
         })
     ],
     optimization: {
