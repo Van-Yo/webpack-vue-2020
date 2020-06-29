@@ -12,6 +12,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 import dialog from '@utils/dialog';
 // 引入vuex
 import store from './store';
+// 引入js对象拓展方法
+import '@utils/objectExpand';
 
 Vue.use(ElementUI);
 Vue.use(dialog);

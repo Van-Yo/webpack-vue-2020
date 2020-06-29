@@ -27,6 +27,10 @@
 			<div>
 				<el-button type="primary" @click="getMockData" plain>获取mock数据</el-button>
 			</div>
+			<div>
+				<p>{{nowDate}}</p>
+				<el-button type="primary" @click="getChangetime" plain>获取转换后的时间</el-button>
+			</div>
 			<Footer></Footer>
 		</div>
 	</section>
@@ -40,7 +44,9 @@ import Storage from '@utils/storage.js';
 import requestTest from '@requests/requestTest.js';
 export default {
 	data() {
-		return {};
+		return {
+			nowDate:''
+		};
 	},
 	computed : {
 		...mapState('book',[
@@ -99,6 +105,10 @@ export default {
 			requestTest.getMockData().then(res=>{
 				console.log(res);
 			})
+		},
+		getChangetime(){
+			this.nowDate = new Date('2020/06/29').format('yyyy-MM-dd hh:mm:ss');
+
 		}
 	},
 	created(){

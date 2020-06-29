@@ -12,7 +12,8 @@ const buildConfig = {
     // 打包模式（生产）
     mode : 'production',
     output: {
-        filename: 'js/[name].[contenthash].js'
+        filename: 'js/[name].[contenthash].js',
+        publicPath : '/'
     },
     // 打包规则
     module: {
@@ -20,12 +21,7 @@ const buildConfig = {
             {
                 test: /\.(less|css)$/,
                 use: [
-                    {
-                        loader:MiniCssExtractPlugin.loader,
-                        options: {
-                            publicPath: '../'
-                        }
-                    },
+                    MiniCssExtractPlugin.loader,
                     'css-loader',
                     'postcss-loader',
                     'less-loader'
