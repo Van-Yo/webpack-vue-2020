@@ -11,28 +11,28 @@ class webpackUtils {
     getEnvConfig() {
         let config = {};
         switch (this.ENV) {
-            // 开发环境:不压缩,公司测试地址
+            // 开发:不压缩,公司测试地址
             case 'dev':
                 config = {
                     IS_ENCRYPT : 'false',
                     BASE_URL : '"http://localhost:3300"'    
                 };
                 break;
-            // mock环境:不压缩,开发环境地址
+            // 开发（mock）:不压缩,开发环境地址
             case 'mock':
                 config = {
                     IS_ENCRYPT : 'false',
                     BASE_URL : '"http://localhost:8080"'    
                 };
                 break;
-            // 测试环境:压缩，公司测试地址
+            // 打包测试:压缩，公司测试地址
             case 'test':
                 config = {
                     IS_ENCRYPT : 'true',
                     BASE_URL : '"http://localhost:3300"'    
                 };
                 break;
-            // 生成环境:压缩，生产环境地址
+            // 打包上线:压缩，生产环境地址
             case 'build':
                 config = {
                     IS_ENCRYPT : 'true',
