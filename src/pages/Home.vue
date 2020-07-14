@@ -31,6 +31,11 @@
 				<p>{{nowDate}}</p>
 				<el-button type="primary" @click="getChangetime" plain>获取转换后的时间</el-button>
 			</div>
+			<div>
+				<p>{{foodList}}</p>
+				<p>{{bookInfo}}</p>
+				<el-button type="primary" @click="getChangeFoodList" plain>使用下标更新数组元素</el-button>
+			</div>
 			<Footer></Footer>
 		</div>
 	</section>
@@ -45,7 +50,12 @@ import requestTest from '@requests/requestTest.js';
 export default {
 	data() {
 		return {
-			nowDate:''
+			nowDate:'',
+			foodList : ['apple','banner','peach'],
+			bookInfo : {
+				name : '西游记',
+				price : 22
+			}
 		};
 	},
 	computed : {
@@ -107,8 +117,24 @@ export default {
 			})
 		},
 		getChangetime(){
-			this.nowDate = new Date('2020/06/29').format('yyyy-MM-dd hh:mm:ss');
+			this.nowDate = new Date('2020-10-20 13:01:01').format('yyyy-MM-dd hh:mm:ss');
+		},
+		/**
+		* vue不能检测哪些属性变化
+		*/
+		getChangeFoodList(){
+			// 使用下标更新数组元素
+			// this.foodList[0] = '苹果'
+			// this.$set( this.foodList, 0, '苹果' )
 
+			// 使用赋值方式改变数组长度
+			// this.foodList.length = 10;
+			// this.$set( this.foodList, 9, '苹果' )
+			
+			// 对象增删元素
+			// this.bookInfo.level = 1
+			// this.$set(this.bookInfo,'level',1);
+			this.$delete(this.bookInfo,'price');
 		}
 	},
 	created(){
