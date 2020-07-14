@@ -20,7 +20,8 @@ const devConfig = {
         // 浏览器自动打开
         open : true,
         hot: true,
-        historyApiFallback: true
+        historyApiFallback: true,
+        host: '0.0.0.0' // 可以将localhost改成当前局域网ip地址，用手机访问该地址预览
     },
     // 打包规则
     module: {

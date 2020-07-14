@@ -1,0 +1,397 @@
+/*
+ * @Description: 公用样式类
+ */
+/* 解决苹果设备触摸间断性失灵 */
+// * {
+//     cursor: pointer;
+// }
+
+/*flex 布局通用*/
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-2 {
+    flex: 2;
+}
+
+.flex-3 {
+    flex: 3;
+}
+
+.flex-4 {
+    flex: 4;
+}
+
+.flex-5 {
+    flex: 5;
+}
+
+.flex-6 {
+    flex: 6;
+}
+
+.flex-dc {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-ac {
+    display: flex;
+    align-items: center;
+}
+
+.flex-as {
+    display: flex;
+    align-items: flex-start;
+}
+
+.flex-ae {
+    display: flex;
+    align-items: flex-end;
+}
+
+.flex-pc {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-pe {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.flex-ps {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.flex-pb {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-pa {
+    display: flex;
+    justify-content: space-around;
+}
+
+.flex-warp {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*浮动定位*/
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clear:after {
+    clear: both;
+    content: " ";
+    display: block;
+    height: 0;
+    font-size: 0;
+}
+
+.clear {
+    *zoom: 1;
+}
+
+/*常用位移差*/
+@offset: 100;
+
+.fw {
+    width: 100%;
+}
+
+.margin-top5 {
+    margin-top: 5rem / @offset;
+}
+
+.margin-top10 {
+    margin-top: 10rem / @offset;
+}
+
+.margin-top15 {
+    margin-top: 15rem / @offset;
+}
+
+.margin-top20 {
+    margin-top: 20rem / @offset;
+}
+
+.margin-l5 {
+    margin-left: 5rem / @offset;
+}
+
+.margin-l10 {
+    margin-left: 10rem / @offset;
+}
+
+.margin-l15 {
+    margin-left: 15rem / @offset;
+}
+
+.margin-l20 {
+    margin-left: 20rem / @offset;
+}
+
+.margin-btm5 {
+    margin-bottom: 5rem / @offset;
+}
+
+.margin-btm10 {
+    margin-bottom: 10rem / @offset;
+}
+
+.margin-btm15 {
+    margin-bottom: 15rem / @offset;
+}
+
+.margin-btm20 {
+    margin-bottom: 20rem / @offset;
+}
+
+.margin-r5 {
+    margin-right: 5rem / @offset;
+}
+
+.margin-r10 {
+    margin-right: 10rem / @offset;
+}
+
+.margin-r15 {
+    margin-right: 15rem / @offset;
+}
+
+.margin-r20 {
+    margin-right: 20rem / @offset;
+}
+
+.padding-top5 {
+    padding-top: 5rem / @offset;
+}
+
+.padding-top10 {
+    padding-top: 10rem / @offset;
+}
+
+.padding-top15 {
+    padding-top: 15rem / @offset;
+}
+
+.padding-top20 {
+    padding-top: 20rem / @offset;
+}
+
+.padding-l5 {
+    padding-left: 5rem / @offset;
+}
+
+.padding-l10 {
+    padding-left: 10rem / @offset;
+}
+
+.padding-l15 {
+    padding-left: 15rem / @offset;
+}
+
+.padding-l20 {
+    padding-left: 20rem / @offset;
+}
+
+.padding-btm5 {
+    padding-bottom: 5rem / @offset;
+}
+
+.padding-btm10 {
+    padding-bottom: 10rem / @offset;
+}
+
+.padding-btm15 {
+    padding-bottom: 15rem / @offset;
+}
+
+.padding-btm20 {
+    padding-bottom: 20rem / @offset;
+}
+
+.padding-r5 {
+    padding-right: 5rem / @offset;
+}
+
+.padding-r10 {
+    padding-right: 10rem / @offset;
+}
+
+.padding-r15 {
+    padding-right: 15rem / @offset;
+}
+
+.padding-r20 {
+    padding-right: 20rem / @offset;
+}
+
+/*一屏100%*/
+html,
+body {
+    height: 100%;
+    position: relative;
+}
+
+/*顶层路由样式*/
+#app {
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch; //优化ios 滚动卡顿和滚动穿透
+}
+
+/*
+超出显示为...
+*/
+.overflowHide(@max-w) {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: @max-w;
+}
+
+/*
+超出n行显示为...
+*/
+.overLineHide(@line:3) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: @line;
+    -webkit-box-orient: vertical;
+}
+
+/*
+ icon小图标基本样式    使用eg.:  .icons-config(30px, 30px);
+ */
+.icons-config(@width: 0, @height: 0, @vertical: normal, @bg_size: cover, @bg_pos: center) {
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-size: @bg_size;
+    background-position: @bg_pos;
+    width: @width;
+    min-width: @width;
+    height: @height;
+    min-height: @height;
+    vertical-align: @vertical;
+}
+
+/*
+右箭头 >
+*/
+.triangle-r(@color:#ccc,@size:10px) {
+    position: relative;
+
+    &:after {
+        content: "";
+        display: inline-block;
+        position: relative;
+        top: 0;
+        right: 0;
+        height: @size;
+        width: @size;
+        border-width: 1px 1px 0 0;
+        border-color: @color;
+        border-style: solid;
+        -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+        transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    }
+}
+
+/*
+向下倒三角
+ */
+.arrow(@color:#ccc,@size:1px) {
+    position: relative;
+    &:after {
+        content: "";
+        display: inline-block;
+        position: relative;
+        top: 0;
+        right: 0;
+        vertical-align: middle;
+        border-left: @size solid transparent;
+        border-right: @size solid transparent;
+        border-top: @size solid @color;
+    }
+}
+
+// 图片不变形
+.image {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/*
+   placeholder颜色
+    */
+::placeholder {
+    color: #ccc;
+    font-family: "Microsoft YaHei";
+}
+
+::-webkit-placeholder {
+    color: #ccc;
+    font-family: "Microsoft YaHei";
+}
+
+::-moz-placeholder {
+    color: #ccc;
+    font-family: "Microsoft YaHei";
+}
+
+::-ms-placeholder {
+    color: #ccc;
+    font-family: "Microsoft YaHei";
+}
+
+iframe {
+    display: none;
+}
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+.hidden {
+    display: none !important;
+}
+.container{
+    width: 1140px;
+    margin: 0 auto;
+}
+@media (max-width: 1140px){
+    .container{
+        width: 100%;
+    }
+}

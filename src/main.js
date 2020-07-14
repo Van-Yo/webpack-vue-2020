@@ -3,6 +3,7 @@
 import Vue from 'vue';
 import App from './App.vue';
 import '@assets/styles/reset.css';
+import '@assets/styles/public.less';
 import router from '@router/index';
 // 引入element-ui
 import ElementUI from 'element-ui';
@@ -11,6 +12,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 import dialog from '@utils/dialog';
 // 引入vuex
 import store from './store';
+// 引入js对象拓展方法
+import '@utils/objectExpand';
 
 Vue.use(ElementUI);
 Vue.use(dialog);
