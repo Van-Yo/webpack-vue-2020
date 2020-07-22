@@ -61,5 +61,14 @@ if(process.env.npm_lifecycle_event == 'mock'){
         // mock的api
         apiMocker(app, path.resolve(__dirname,'../src/mock/api.js'));
     };
+    devConfig.devServer.proxy = {
+        // '/proxy/api/blogList/getBlogList' => 'http://localhost:3300/api/blogList/getBlogList'
+        '/proxy':{
+            target : 'http://localhost:3300', // 代理到生产接口
+            changeOrigin: true, // 是否跨域
+            secure : false, // https的时候使用该参数
+            pathRewrite: {'^/proxy' : ''}
+        }
+    }
 };
 module.exports = merge(baseConfig,devConfig)
