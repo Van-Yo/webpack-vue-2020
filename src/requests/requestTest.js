@@ -9,6 +9,9 @@ class requestTest{
     getMockData(){
         return http.get(`${BASE_URL_CONSTANT}/daduhui/test`);
     }
+    getProxyData(){
+        return http.get('/proxy/api/blogList/getBlogList');
+    }
 }
 
 export default new requestTest();

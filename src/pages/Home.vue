@@ -6,9 +6,11 @@
 				<el-row>
 					<el-button type="primary" @click="goToBook" plain>图书</el-button>
 					<el-button type="primary" @click="goToFood" plain>美食</el-button>
-					<el-button type="primary" @click="loading" plain>loading</el-button>
-					<el-button type="primary" @click="toast" plain>toast</el-button>
-					<el-button type="primary" @click="dialog" plain>dialog</el-button>
+					<div>
+						<el-button type="danger" @click="loading" plain>loading</el-button>
+						<el-button type="danger" @click="toast" plain>toast</el-button>
+						<el-button type="danger" @click="dialog" plain>dialog</el-button>
+					</div>
 				</el-row>
 			</div>
 			<div>
@@ -21,11 +23,16 @@
 			<div>
 				<el-button type="primary" @click="setStoreage" plain>本地存储数据</el-button>
 			</div>
-			<div>
-				<el-button type="primary" @click="getAddressList" plain>请求接口数据</el-button>
-			</div>
-			<div>
-				<el-button type="primary" @click="getMockData" plain>获取mock数据</el-button>
+			<div class="flex">
+				<div class="margin-r20">
+					<el-button type="success" @click="getAddressList">请求接口数据</el-button>
+				</div>
+				<div class="margin-r20">
+					<el-button type="success" @click="getMockData">获取mock数据</el-button>
+				</div>
+				<div>
+					<el-button type="success" @click="getProxyData">获取proxy数据</el-button>
+				</div>
 			</div>
 			<div>
 				<p>{{nowDate}}</p>
@@ -113,6 +120,11 @@ export default {
 		},
 		getMockData(){
 			requestTest.getMockData().then(res=>{
+				console.log(res);
+			})
+		},
+		getProxyData(){
+			requestTest.getProxyData().then(res=>{
 				console.log(res);
 			})
 		},
