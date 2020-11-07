@@ -53,6 +53,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "crypto-js": "^4.0.0",
+    "echarts": "^4.9.0",
     "element-ui": "^2.13.2",
     "node-rsa": "^1.0.8",
     "vue": "^2.6.11",
