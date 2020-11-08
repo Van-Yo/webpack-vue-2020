@@ -13,6 +13,9 @@
         font-size: 20px;
         color: #fff;
         cursor: pointer;
+        &:hover{
+            background: #FEB6AA;
+        }
     }
     .active{
         background: #FEB6AA;
@@ -23,7 +26,7 @@
     <div class="flex flex-ac">
         <div id="echartMap" class="o-echarts"></div>
         <div class="prince-list">
-            <div @click="highLightPrince(index)" class="flex single" :class="activeIndex===index ? 'active' : ''" v-for="(item,index) in listArr" :key="index">
+            <div @mouseenter="selectStyle(index)" @mouseleave="outStyle(index)" @click="highLightPrince(index)" class="flex single" :class="activeIndex===index ? 'active' : ''" v-for="(item,index) in listArr" :key="index">
                 <div class="name">{{item.full_name}}</div>
                 <div class="num">{{item.num}}</div>
             </div>
@@ -166,11 +169,12 @@ export default {
         },
         activeIndex : {
             handler(newValue, oldValue) {
-                if(newValue != oldValue){
+                console.log(newValue);
+                if((newValue != oldValue) && this.listArr[oldValue]){
                     this.echartObj.dispatchAction({ type: 'downplay', name:this.listArr[oldValue].full_name});//取消高亮
                 }
             },
-        }
+        },
     },
     props: {
         serviceTypeId: {
@@ -193,14 +197,24 @@ export default {
         this.charts();
     },
     methods: {
+        // 鼠标移开触发事件
+        outStyle(index,status){
+            if(index !== this.activeIndex){
+                this.echartObj.dispatchAction({ type: 'downplay', name:this.listArr[index].full_name});//取消高亮
+            }
+        },
+        // 鼠标移上去触发事件
+        selectStyle(index){
+            this.echartObj.dispatchAction({ type: 'highlight', name:this.listArr[index].full_name});
+        },
+        // 鼠标点击触发事件
         highLightPrince(index){
-            // this.echartObj.dispatchAction({ type: 'downplay', name:'崇明区'});//取消高亮
             this.activeIndex = index;
             this.echartObj.dispatchAction({ type: 'highlight', name:this.listArr[index].full_name});
         },
         charts() {
-            this.$nextTick(() => {
-                this.echartObj = echarts.init(
+            let _this = this;
+            this.echartObj = echarts.init(
                     document.getElementById('echartMap')
                 );
                 echarts.registerMap('上海', JSON);
@@ -208,19 +222,25 @@ export default {
                 console.log(JSON.features);
                 this.echartObj.setOption(this.getOptions(), true);
                 // 鼠标进入模块触发事件
-                // this.echartObj.on('mouseover',function(param){
-                //     console.log(param);
-                // });
+                this.echartObj.on('mouseover',function(param){
+                    _this.$nextTick(() => {
+                        console.log(param);
+                        _this.activeIndex = param.dataIndex;
+                    });
+                    
+                });
                 // 鼠标移出模块触发事件
-                // this.echartObj.on('mouseOut',function(param){
-                //     console.log(param);
-                // });
+                this.echartObj.on('mouseOut',function(param){
+                    _this.$nextTick(() => {
+                        console.log(param);
+                        _this.activeIndex = '';
+                    });
+                });
                 window.addEventListener('resize', () => {
                     if (this.echartObj && this.echartObj.resize) {
                         this.echartObj.resize();
                     }
                 });
-            });
         },
 
         getOptions() {
