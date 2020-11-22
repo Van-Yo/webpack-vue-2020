@@ -14,5 +14,6 @@ function fromJSONFile(filename) {
 const proxy = {
     'GET /daduhui/test': fromJSONFile('test'),//test
     'GET /book/getBookList': fromJSONFile('bookList'),//bookList
+    'POST /login': fromJSONFile('login'),//bookList
 };
 module.exports = proxy;

@@ -7,6 +7,8 @@
         <Tab2 ref="tab2"></Tab2>
         <el-button type="primary" @click="clickRef" plain>保存</el-button>
         <el-button type="primary" @click="testAsync" plain>测试async</el-button>
+        <el-button type="primary" @click="getAddressList" plain>测试获取mock数据</el-button>
+        <el-button type="primary" @click="()=>{$router.push('/book')}" plain>book</el-button>
         <Footer></Footer>
     </div>
 </section>

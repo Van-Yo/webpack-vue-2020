@@ -2,7 +2,7 @@
  * @Description: 本地数据管理类
  */
 import encrypt from './encrypt';
-import {IS_ENCRYPT_CONSTANT} from './constant'
+import { IS_ENCRYPT_CONSTANT } from './constant'
 
 class Storage {
     constructor() {
@@ -21,7 +21,7 @@ class Storage {
             val = JSON.stringify(value);
         }
         let data = IS_ENCRYPT_CONSTANT ? encrypt.aesEncrypt(val, this.aesKey) : val;
-        sessionStorage.setItem(key, data);
+        localStorage.setItem(key, data);
     }
 
     /**
@@ -29,7 +29,7 @@ class Storage {
      * @param {*} key
      */
     decryptGet(key) {
-        let localData = sessionStorage.getItem(key);
+        let localData = localStorage.getItem(key);
         let data =
             localData &&
             (IS_ENCRYPT_CONSTANT
@@ -57,6 +57,18 @@ class Storage {
      */
     getRequestHeader() {
         return this.decryptGet(this.requestHeader);
+    }
+    /**
+     * 设置本地个人信息
+    */
+    setUserInfo(value) {
+        this.encryptSet('userInfo', value);
+    }
+    /**
+     * 获取本地个人信息
+    */
+    getUserInfo() {
+        return this.decryptGet('userInfo');
     }
 }
 export default new Storage();

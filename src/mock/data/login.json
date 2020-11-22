@@ -1,0 +1,15 @@
+{
+    "msg": "操作成功",
+    "code": 0,
+    "data": {
+        "orgInfo": {
+            "ccode": "SHSWJW31000",
+            "cname": "上海市卫健委",
+            "clevel": "01",
+            "ctype": "01",
+            "qxbm": null,
+            "jglb": "1"
+        },
+        "username": "cs"
+    }
+}

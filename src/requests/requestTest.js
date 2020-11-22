@@ -12,6 +12,9 @@ class requestTest{
     getProxyData(){
         return http.get('/proxy/api/blogList/getBlogList');
     }
+    login(data){
+        return http.post(`${BASE_URL_CONSTANT}/login`,data)
+    }
 }
 
 export default new requestTest();
