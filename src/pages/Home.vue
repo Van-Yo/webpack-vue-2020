@@ -9,6 +9,7 @@
         <el-button type="primary" @click="testAsync" plain>测试async</el-button>
         <el-button type="primary" @click="getAddressList" plain>测试获取mock数据</el-button>
         <el-button type="primary" @click="()=>{$router.push('/book')}" plain>book</el-button>
+        <el-button type="primary" @click="testClg" plain>测试console log bug</el-button>
         <Footer></Footer>
     </div>
 </section>
@@ -147,6 +148,9 @@ export default {
                 let p2 = await this.p2Promise(p1);
                 console.log(p2);
             }
+        },
+        testClg(){
+            this.$router.push('testClg')
         }
     },
     created() {
