@@ -9,7 +9,9 @@
 <script>
 export default {
     data() {
-        return {};
+        return {
+            defaultIndex : 0
+        };
     },
     props :{
         listArr : {
@@ -29,6 +31,14 @@ export default {
                 //     console.log(newVal);
                 //     console.log(newVal[0].name);
                 // }
+            },
+            deep :true,
+            immediate : true
+        },
+        defaultIndex : {
+            handler(newVal,oldVal){
+                console.log(newVal,oldVal);
+                console.log(this.listArr[newVal]);
             },
             deep :true,
             immediate : true

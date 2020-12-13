@@ -15,6 +15,9 @@ import store from './store';
 // 引入js对象拓展方法
 import '@utils/objectExpand';
 import Storage from './utils/storage';
+// 使用 nprogress 对路由跳转时做一个伪进度条
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css'  // 这个nprogress样式必须引入
 
 Vue.use(ElementUI);
 Vue.use(dialog);
@@ -27,6 +30,7 @@ Vue.use(dialog);
 let flag = true;
 const whiteList = ['/login', '/errorPage'] // 免登录白名单
 router.beforeEach(async (to, from, next) => {
+    NProgress.start();
     let token = Storage.getUserInfo();
     // 判断登录状态
     if (token) {
@@ -65,7 +69,9 @@ router.beforeEach(async (to, from, next) => {
         }
     }
 })
-
+router.afterEach(() => {
+    NProgress.done();
+});
 new Vue({
     el: '#app',
     router,

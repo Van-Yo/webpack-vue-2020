@@ -277,7 +277,7 @@ body {
 /*
 超出n行显示为...
 */
-.overLineHide(@line:3) {
+.overLineHide(@line: 3) {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -303,7 +303,7 @@ body {
 /*
 右箭头 >
 */
-.triangle-r(@color:#ccc,@size:10px) {
+.triangle-r(@color: #ccc, @size: 10px) {
     position: relative;
 
     &:after {
@@ -325,8 +325,9 @@ body {
 /*
 向下倒三角
  */
-.arrow(@color:#ccc,@size:1px) {
+.arrow(@color: #ccc, @size: 1px) {
     position: relative;
+
     &:after {
         content: "";
         display: inline-block;
@@ -374,24 +375,56 @@ body {
 iframe {
     display: none;
 }
+
 .text-center {
     text-align: center;
 }
+
 .text-left {
     text-align: left;
 }
+
 .text-right {
     text-align: right;
 }
+
 .hidden {
     display: none !important;
 }
-.container{
+
+.container {
     width: 1140px;
     margin: 0 auto;
 }
-@media (max-width: 1140px){
-    .container{
+// 美化滚动条
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    width: 6px;
+    background: rgba(#101F1C, 0.1);
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(#101F1C, 0.5);
+    background-clip: padding-box;
+    min-height: 28px;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(#101F1C, 1);
+}
+
+@media (max-width: 1140px) {
+    .container {
         width: 100%;
     }
 }
