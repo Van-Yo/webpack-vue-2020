@@ -61,14 +61,23 @@ module.exports = {
             },
             {
                 test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
-                use: [{
-                    loader: 'url-loader',
-                    options: {
-                        esModule: false, // 这里设置为false
-                        limit: 8192,
-                        name: 'fonts/[name].[ext]', //占位符
-                    },
-                }, ],
+                loader: 'url-loader',
+                exclude: [
+                    path.resolve(__dirname, '../src/assets/icons/svg'), //排除字体图标文件
+                ],
+                options: {
+                    esModule: false, // 这里设置为false
+                    limit: 8192,
+                    name: 'fonts/[name].[ext]', //占位符
+                },
+            },
+            {
+                test: /\.svg$/,
+                loader: 'svg-sprite-loader',
+                include: [path.resolve(__dirname, '../src/assets/icons/svg')],//包括字体图标文件
+                // options: {
+                  //symbolId: 'icon-[name]' //这个没有生效，生效的是默认的name
+                // }
             }
         ]
     },

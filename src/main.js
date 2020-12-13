@@ -18,6 +18,11 @@ import Storage from './utils/storage';
 // 使用 nprogress 对路由跳转时做一个伪进度条
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css'  // 这个nprogress样式必须引入
+// 静态资源与图标
+import './assets/icons/index'
+// 使用clipboard.js进行一键复制文本
+import Clipboard from 'v-clipboard';
+Vue.use(Clipboard)
 
 Vue.use(ElementUI);
 Vue.use(dialog);
