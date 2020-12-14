@@ -1,18 +1,20 @@
 <template>
     <section class="svg-area">
-        <el-row :gutter="20">
-            <el-col
-                v-clipboard="`<svg-icon :icon-class=&quot;${index + 1}&quot;/>`"
-                v-clipboard:success="clipboardSuccessHandler"
-                v-clipboard:error="clipboardErrorHandler"
-                :span="2"
-                v-for="(item, index) in 20"
-                :key="index"
-                class="single flex-ac flex-pc"
-            >
-                <svg-icon :icon-class="index + 1 + ''" />
-            </el-col>
-        </el-row>
+        <div class="container">
+            <el-row :gutter="20">
+                <el-col
+                    v-clipboard="`<svg-icon :icon-class=&quot;${index + 1}&quot;/>`"
+                    v-clipboard:success="clipboardSuccessHandler"
+                    v-clipboard:error="clipboardErrorHandler"
+                    :span="2"
+                    v-for="(item, index) in 20"
+                    :key="index"
+                    class="single flex-ac flex-pc"
+                >
+                    <svg-icon :icon-class="index + 1 + ''" />
+                </el-col>
+            </el-row>
+        </div>
     </section>
 </template>
 
@@ -25,12 +27,12 @@ export default {
     methods: {
         //定义复制失败的回调
         clipboardSuccessHandler({ value, event }) {
-            console.log("success", value);
-            this.$message.success("已复制");
+            console.log('success', value);
+            this.$message.success('代码复制成功，前往粘贴');
         },
         //定义复制成功的回调方法
         clipboardErrorHandler({ value, event }) {
-            console.log("error", value);
+            console.log('error', value);
         },
     },
     components: {},
@@ -68,7 +70,7 @@ export default {
     .single {
         cursor: pointer;
         height: 40em;
-        & :hover {
+        &:hover {
             background: #f0f0f0;
         }
     }
