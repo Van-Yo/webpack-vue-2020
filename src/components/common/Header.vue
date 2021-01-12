@@ -1,13 +1,11 @@
 <template>
     <section class="header-area">
-        <div class="container">
-            <el-row :gutter="10">
-                <el-col :xs="8" :sm="6" :md="6" :lg="6" :xl="1"><div class="grid-content bg-purple flex flex-ac flex-ps ">webpack+vue</div></el-col>
-                <el-col :xs="4" :sm="6" :md="6" :lg="6" :xl="11"><div class="grid-content bg-purple-light"></div></el-col>
-                <el-col :xs="4" :sm="6" :md="6" :lg="6" :xl="11"><div class="grid-content bg-purple"></div></el-col>
-                <el-col :xs="8" :sm="6" :md="6" :lg="6" :xl="1"><div class="grid-content bg-purple-light flex flex-ac flex-pe">您好啊</div></el-col>
-            </el-row>
-        </div>
+        <el-row>
+            <el-col :xs="8" :sm="6" :md="6" :lg="6" :xl="6"><div class="grid-content bg-purple flex flex-ac flex-ps ">wsx</div></el-col>
+            <el-col :xs="4" :sm="6" :md="6" :lg="6" :xl="6"><div class="grid-content bg-purple-light"></div></el-col>
+            <el-col :xs="4" :sm="6" :md="6" :lg="6" :xl="6"><div class="grid-content bg-purple"></div></el-col>
+            <el-col :xs="8" :sm="6" :md="6" :lg="6" :xl="6"><div class="grid-content bg-purple-light flex flex-ac flex-pe">您好!xxx</div></el-col>
+        </el-row>
     </section>
 </template>
 

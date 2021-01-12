@@ -26,4 +26,12 @@
         }
         return formatStr;
     };
+    // reduce -> map
+    Array.prototype.reduceMap = function(callback){
+        return this.reduce((acc,cur,index,array)=>{
+            const item = callback(cur,index);
+            acc.push(item);
+            return acc;
+        },[])
+    }
 })();
