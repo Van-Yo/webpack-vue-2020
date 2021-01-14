@@ -12,6 +12,13 @@ const test = [
         meta: {
             title: 'svg图例库'
         }
+    },
+    {
+        path: '/htmlLayout',
+        component: () => import(/* webpackChunkName: "test" */'../pages/test/htmlLayout/Index.vue'),
+        meta: {
+            title: 'html布局'
+        }
     }
 ];
 export default test;
