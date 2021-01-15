@@ -58,28 +58,54 @@
         </div>
         <div>
             <h2>垂直方向的布局(flex布局)</h2>
-            <div class="main main-8">
-                <div class="content">
-                    <div>1</div>
-                    <div>1</div>
-                    <div>1</div>
-                    <div>1</div>
-                    <div>1</div>
-                    <div>1</div>
-                    <div>1</div>
-                    <div>1</div>
-                    <div>1</div>
-                    <div>1</div>
-                    <div>1</div>
-                    <div>1</div>
-                    <div>1</div>
-                    <div>1</div>
-                    <div>1</div>
-                    <div>1</div>
-                    <div>1</div>
-                    <div>1</div>
+            <div class="height-250">
+                <div class="main-8">
+                    <header></header>
+                    <div class="content">
+                        <div>1</div>
+                        <div>1</div>
+                        <div>1</div>
+                        <div>1</div>
+                        <div>1</div>
+                        <div>1</div>
+                        <div>1</div>
+                        <div>再加几行试试</div>
+                    </div>
+                    <footer></footer>
                 </div>
-                <div class="footer"></div>
+            </div>
+        </div>
+        <div>
+            <h2>粘性布局（sticky）</h2>
+            <div class="main main-9">
+                <header>标题一</header>
+                <div class="content">1</div>
+                <div class="content">1</div>
+                <div class="content">1</div>
+                <div class="content">1</div>
+                <div class="content">1</div>
+                <div class="content">1</div>
+                <header>标题二</header>
+                <div class="content">1</div>
+                <div class="content">1</div>
+                <div class="content">1</div>
+                <div class="content">1</div>
+                <div class="content">1</div>
+                <div class="content">1</div>
+                <header>标题三</header>
+                <div class="content">1</div>
+                <div class="content">1</div>
+                <div class="content">1</div>
+                <div class="content">1</div>
+                <div class="content">1</div>
+                <div class="content">1</div>
+                <header>标题四</header>
+                <div class="content">1</div>
+                <div class="content">1</div>
+                <div class="content">1</div>
+                <div class="content">1</div>
+                <div class="content">1</div>
+                <div class="content">1</div>
             </div>
         </div>
     </section>
@@ -104,6 +130,10 @@ export default {
     display: flex;
     flex-wrap: wrap;
     margin-top: 1px;
+    .height-250{
+        height: 250px;
+        overflow: auto;
+    }
     & >div{
         width: 50%;
         height: 300px;
@@ -255,19 +285,31 @@ export default {
         .main-8{
             display: flex; 
             flex-flow: column;
-            min-height: 250px;
-            // overflow: auto;
+            min-height: 100%;
+            background: #f0f0f0;
+            header{
+                height: 30px;  
+                background-color: #409eff;
+            }
             .content {
                 // flex: 1; 
                 background: #f0f0f0;
                 height: 100%;
                 overflow: auto;
             }
-            .footer{
-                  
+            footer{
                 height: 30px;  
                 background-color: #409eff;
                 margin-top: auto;
+            }
+        }
+        .main-9{
+            overflow: auto;
+            header {
+                position: sticky;
+                top: 0;
+                height: 30px;
+                background-color:#409eff;
             }
         }
     }
