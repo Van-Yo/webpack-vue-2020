@@ -1,7 +1,7 @@
 <template>
     <section class="header-area">
         <el-row>
-            <el-col :xs="8" :sm="6" :md="6" :lg="6" :xl="6"><div class="grid-content bg-purple flex flex-ac flex-ps ">wsx</div></el-col>
+            <el-col :xs="8" :sm="6" :md="6" :lg="6" :xl="6"><div style="cursor: pointer;" class="grid-content bg-purple flex flex-ac flex-ps" @click="goHome">wsx</div></el-col>
             <el-col :xs="4" :sm="6" :md="6" :lg="6" :xl="6"><div class="grid-content bg-purple-light"></div></el-col>
             <el-col :xs="4" :sm="6" :md="6" :lg="6" :xl="6"><div class="grid-content bg-purple"></div></el-col>
             <el-col :xs="8" :sm="6" :md="6" :lg="6" :xl="6"><div class="grid-content bg-purple-light flex flex-ac flex-pe">您好!xxx</div></el-col>
@@ -14,7 +14,11 @@ export default {
     data() {
         return {};
     },
-    methods: {},
+    methods: {
+        goHome(){
+            this.$router.push('/home')
+        }
+    },
     components: {}
 };
 </script>

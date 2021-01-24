@@ -13,6 +13,12 @@
         <div>
             <el-button type="primary" @click="testReduceMap" plain>测试reduce重写map方法</el-button>
         </div>
+        <div>
+            <el-button type="primary" @click="goToHtmlLayoutPage" plain>html布局</el-button>
+        </div>
+        <div>
+            <el-button type="primary" @click="goToCssBorderTranstionPage" plain>CSS 奇思妙想边框动画</el-button>
+        </div>
     </section>
 </template>
 
@@ -40,6 +46,12 @@ export default {
     methods: {
         ...mapMutations('book', ['numIncrement']),
         ...mapActions('book', ['numIncrementAsync']),
+        goToHtmlLayoutPage(){
+            this.$router.push('/htmlLayout');
+        },
+        goToCssBorderTranstionPage(){
+            this.$router.push('/cssBorderTranstion')
+        },
         goToBook() {
             this.$router.push('/book');
         },

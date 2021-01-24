@@ -19,6 +19,13 @@ const test = [
         meta: {
             title: 'html布局'
         }
+    },
+    {
+        path: '/cssBorderTranstion',
+        component: () => import(/* webpackChunkName: "test" */'../pages/test/cssBorderTranstion/Index.vue'),
+        meta: {
+            title: 'CSS 奇思妙想边框动画'
+        }
     }
 ];
 export default test;
