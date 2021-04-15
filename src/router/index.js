@@ -20,6 +20,13 @@ export const baseArr = [
         redirect: '/login'
     },
     {
+        path: '/searchList',
+        component: () => import(/* webpackChunkName: "test" */'../pages/test/searchList/Index.vue'),
+        meta: {
+            title: '通讯录'
+        }
+    },
+    {
         path: '/login',
         component: () => import(/* webpackChunkName: "home" */'../pages/login/Index.vue'),
         meta: {

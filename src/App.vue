@@ -23,7 +23,7 @@ export default {
     },
     watch: {
         $route(to, from) {
-            if(this.$route.path == '/login'){
+            if(this.$route.path == '/login' || this.$route.path == '/searchList'){
                 this.loginFlag = true
             }else{
                 this.loginFlag = false

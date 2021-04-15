@@ -15,6 +15,10 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 // 引入webpack工具类
 const webpackUtils = require('./webpack.utils');
+// 打包进度条
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+// 多线程打包
+const HappyPack = require('happypack');
 const config = webpackUtils.getEnvConfig();
 
 module.exports = {
@@ -57,7 +61,9 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader'
+                // loader: 'babel-loader'
+                // happypack/loader多线程打包，原先的'babel-loader'配置到下面插件中
+                use: 'happypack/loader',
             },
             {
                 test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
@@ -93,6 +99,11 @@ module.exports = {
                 from: 'src/assets/static',
                 to: 'static'
             }]
+        }),
+        new ProgressBarPlugin(),
+        new HappyPack({
+            // 3) re-add the loaders you replaced above in #1:
+            loaders: [ 'babel-loader' ]
         }),
         // 定义全局数据
         new webpack.DefinePlugin(config)

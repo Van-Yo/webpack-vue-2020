@@ -19,6 +19,9 @@
         <div>
             <el-button type="primary" @click="goToCssBorderTranstionPage" plain>CSS 奇思妙想边框动画</el-button>
         </div>
+        <div>
+            <el-button type="primary" @click="goToSearchList" plain>通讯录</el-button>
+        </div>
     </section>
 </template>
 
@@ -46,6 +49,9 @@ export default {
     methods: {
         ...mapMutations('book', ['numIncrement']),
         ...mapActions('book', ['numIncrementAsync']),
+        goToSearchList(){
+            this.$router.push('/searchList');
+        },
         goToHtmlLayoutPage(){
             this.$router.push('/htmlLayout');
         },
